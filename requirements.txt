@@ -1,0 +1,2 @@
+# Core dependencies for Imlib DB theme extraction
+Pillow>=10.0.0        # Image processing and format conversion
