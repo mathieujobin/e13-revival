@@ -1,0 +1,30 @@
+[General]
+# E13 Classic Green Theme (nostalgic E13 style)
+BorderWidth=5
+TitleBarHeight=26
+EnableShadows=true
+
+[Colors]
+# Green-tinted classic
+ActiveFrameColor=#1a2820
+ActiveTitleBarColor=#243830
+ActiveTextColor=#d0f0d8
+
+InactiveFrameColor=#283428
+InactiveTitleBarColor=#344434
+InactiveTextColor=#80a088
+
+ButtonHoverColor=#344434
+ButtonPressColor=#1a2820
+CloseButtonColor=#d86060
+
+[Buttons]
+ButtonSize=26
+ButtonSpacing=2
+LeftButtons=M
+RightButtons=IAX
+
+[Advanced]
+Antialiasing=true
+TitleFontSize=11
+TitleBold=true

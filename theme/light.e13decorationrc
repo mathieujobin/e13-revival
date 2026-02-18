@@ -1,0 +1,30 @@
+[General]
+# E13 Light Theme
+BorderWidth=3
+TitleBarHeight=26
+EnableShadows=true
+
+[Colors]
+# Light color scheme
+ActiveFrameColor=#d8d8dc
+ActiveTitleBarColor=#e8e8ec
+ActiveTextColor=#202020
+
+InactiveFrameColor=#e8e8ec
+InactiveTitleBarColor=#f0f0f4
+InactiveTextColor=#808080
+
+ButtonHoverColor=#d0d0d4
+ButtonPressColor=#c0c0c4
+CloseButtonColor=#d04040
+
+[Buttons]
+ButtonSize=24
+ButtonSpacing=2
+LeftButtons=M
+RightButtons=IAX
+
+[Advanced]
+Antialiasing=true
+TitleFontSize=10
+TitleBold=false
