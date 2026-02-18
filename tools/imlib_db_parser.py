@@ -143,7 +143,7 @@ class ImlibDBParser:
                 try:
                     import zlib
                     data = zlib.decompress(data)
-                except:
+                except (zlib.error, Exception):
                     pass  # Keep original data if decompression fails
             
             self.entries[key] = data
@@ -271,7 +271,7 @@ class ImlibDBParser:
             # Check if mostly printable ASCII
             printable = sum(c.isprintable() or c in '\n\r\t' for c in text)
             return printable / len(text) > 0.9
-        except:
+        except (UnicodeDecodeError, Exception):
             return False
     
     def extract_text(self, key: str) -> Optional[str]:
