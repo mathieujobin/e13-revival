@@ -67,6 +67,7 @@ private:
     QColor m_buttonHoverColor;
     QColor m_buttonPressColor;
     QColor m_closeButtonColor;
+    QColor m_separatorColor;
     
     // E13 style properties - fonts
     int m_titleFontSize = 10;

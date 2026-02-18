@@ -46,21 +46,30 @@ QColor Button::getIconColor() const
     auto e13dec = qobject_cast<Decoration*>(decoration());
     const bool active = decoration()->client()->isActive();
     
+    // Constants for button icon states
+    static const QColor WHITE_ICON(255, 255, 255);
+    static const QColor LIGHT_ACTIVE(200, 200, 200);
+    static const QColor LIGHT_INACTIVE(140, 140, 145);
+    static const QColor HOVER_ACTIVE(255, 255, 255);
+    static const QColor HOVER_INACTIVE(180, 180, 185);
+    static const QColor DEFAULT_CLOSE(220, 80, 80);
+    static const QColor DEFAULT_ICON(220, 220, 220);
+    
     if (type() == KDecoration2::DecorationButtonType::Close) {
         if (isHovered() || isPressed()) {
-            return QColor(255, 255, 255);
+            return WHITE_ICON;
         }
-        return e13dec ? e13dec->closeButtonColor() : QColor(220, 80, 80);
+        return e13dec ? e13dec->closeButtonColor() : DEFAULT_CLOSE;
     }
     
     if (isPressed()) {
-        return active ? QColor(200, 200, 200) : QColor(140, 140, 145);
+        return active ? LIGHT_ACTIVE : LIGHT_INACTIVE;
     } else if (isHovered()) {
-        return active ? QColor(255, 255, 255) : QColor(180, 180, 185);
+        return active ? HOVER_ACTIVE : HOVER_INACTIVE;
     }
     
     // Use theme text colors for non-close buttons
-    return e13dec ? (active ? e13dec->activeTextColor() : e13dec->inactiveTextColor()) : QColor(220, 220, 220);
+    return e13dec ? (active ? e13dec->activeTextColor() : e13dec->inactiveTextColor()) : DEFAULT_ICON;
 }
 
 void Button::paint(QPainter *painter, const QRect &repaintRegion)

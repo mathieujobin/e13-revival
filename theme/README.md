@@ -240,8 +240,9 @@ qdbus org.kde.KWin /KWin reconfigure
 Force KWin reload:
 
 ```bash
-killall kwin_x11
-kwin_x11 &
+kquitapp5 kwin_x11 && kwin_x11 &
+# For Wayland:
+kquitapp5 kwin_wayland && kwin_wayland &
 ```
 
 Or restart your session.

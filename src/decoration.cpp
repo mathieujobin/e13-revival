@@ -48,6 +48,7 @@ void Decoration::init()
     m_buttonHoverColor = colorGroup.readEntry("ButtonHoverColor", QColor(70, 70, 75));
     m_buttonPressColor = colorGroup.readEntry("ButtonPressColor", QColor(30, 30, 35));
     m_closeButtonColor = colorGroup.readEntry("CloseButtonColor", QColor(220, 80, 80));
+    m_separatorColor = colorGroup.readEntry("SeparatorColor", QColor(70, 70, 75));
     
     // Advanced settings
     KConfigGroup advancedGroup = config->group("Advanced");
@@ -209,7 +210,7 @@ void Decoration::paintFrameBackground(QPainter *painter) const
     painter->drawRect(titleBarRect);
     
     // Draw subtle separator line
-    painter->setPen(QPen(active ? QColor(70, 70, 75) : QColor(80, 80, 85), 1));
+    painter->setPen(QPen(m_separatorColor, 1));
     painter->drawLine(
         titleBarRect.bottomLeft(),
         titleBarRect.bottomRight()

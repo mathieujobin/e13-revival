@@ -22,7 +22,7 @@ echo "  kwriteconfig5 --file kwinrc --group org.kde.kdecoration2 --key library o
 echo "  qdbus org.kde.KWin /KWin reconfigure"
 echo ""
 echo "Or restart KWin:"
-echo "  kwin_x11 --replace &"
+echo "  kquitapp5 kwin_x11 && kwin_x11 &"
 echo ""
 echo "You can also activate it through System Settings:"
 echo "  System Settings > Appearance > Window Decorations > E13 Revival"

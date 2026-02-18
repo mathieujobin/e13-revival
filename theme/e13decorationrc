@@ -27,6 +27,9 @@ ButtonHoverColor=#464649
 ButtonPressColor=#1e1e23
 CloseButtonColor=#dc5050
 
+# UI elements
+SeparatorColor=#46464b
+
 [Buttons]
 # Button size in pixels
 ButtonSize=24
