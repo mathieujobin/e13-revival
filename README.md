@@ -1,5 +1,8 @@
 # E13 Revival - Enlightenment 0.13 Theme Tools
 
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
 This project provides tools for working with Enlightenment 0.13 themes, specifically for extracting and converting legacy Imlib DB/DB2 theme data into modern formats.
 
 ## Features
@@ -8,6 +11,8 @@ This project provides tools for working with Enlightenment 0.13 themes, specific
 - **Modern Format Output**: Convert extracted data to PNG (images) and JSON (configuration/metadata)
 - **Command-Line Interface**: Easy-to-use CLI tool for batch processing themes
 - **Reusable Format**: Output designed for integration with modern desktop environments (KWin, icon themes, etc.)
+- **Multiple Format Support**: Handles DB v1, DB v2 (with compression), and generic extraction
+- **Batch Processing**: Extract multiple themes at once with summary reporting
 
 ## Installation
 
@@ -22,34 +27,52 @@ This project provides tools for working with Enlightenment 0.13 themes, specific
 pip install -r requirements.txt
 ```
 
-## Usage
-
-### Extract Theme Data
+## Quick Start
 
 ```bash
-python tools/extract_theme.py --input /path/to/theme.db --output /path/to/output/
+# Clone the repository
+git clone https://github.com/mathieujobin/e13-revival.git
+cd e13-revival
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Extract a theme
+python3 tools/extract_theme.py -i examples/themes/sample_theme_v1.db -o ./output/
+
+# Analyze a theme
+python3 examples/analyze_theme.py examples/themes/sample_theme_v1.db
+```
+
+See [QUICKSTART.md](QUICKSTART.md) for a detailed quick start guide.
+
+## Usage
+
+### Basic Extraction
+
+```bash
+python3 tools/extract_theme.py -i theme.db -o ./output/
 ```
 
 ### Options
 
-- `--input, -i`: Input Imlib DB/DB2 file or directory
-- `--output, -o`: Output directory for extracted files
-- `--format`: Output format (json, yaml) for metadata (default: json)
-- `--extract-images`: Extract images as PNG files (default: true)
-- `--extract-config`: Extract configuration data (default: true)
-- `--verbose, -v`: Enable verbose logging
+- `-i, --input`: Input Imlib DB/DB2 file (required)
+- `-o, --output`: Output directory for extracted files (required)
+- `--no-images`: Skip image extraction
+- `--no-config`: Skip configuration extraction
+- `-v, --verbose`: Enable verbose logging
 
-### Example
+### Examples
 
 ```bash
-# Extract a complete theme
-python tools/extract_theme.py -i ~/.enlightenment/themes/MyTheme.db -o ./extracted/MyTheme/
+# Extract with verbose output
+python3 tools/extract_theme.py -i theme.db -o ./output/ -v
 
 # Extract only images
-python tools/extract_theme.py -i theme.db -o ./output/ --extract-config=false
+python3 tools/extract_theme.py -i theme.db -o ./output/ --no-config
 
-# Verbose output
-python tools/extract_theme.py -i theme.db -o ./output/ -v
+# Batch extract multiple themes
+python3 tools/batch_extract.py -i themes/*.db -o ./all_themes/
 ```
 
 ## Output Structure
@@ -85,20 +108,32 @@ The extracted theme data can be used with:
 - **GTK/Qt Themes**: Application styling
 - **Wallpapers**: Desktop backgrounds
 
+## Documentation
+
+- **[Quick Start Guide](QUICKSTART.md)** - Get started in 5 minutes
+- **[API Documentation](API.md)** - Complete API reference for developers
+- **[Integration Guide](INTEGRATION.md)** - Use with KWin, GTK, Qt, and more
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to the project
+
 ## Development
 
 ### Running Tests
 
 ```bash
-python -m pytest tests/
+python3 -m unittest discover tests -v
 ```
 
-### Code Style
+### Project Structure
 
-```bash
-black tools/ tests/
-flake8 tools/ tests/
 ```
+e13-revival/
+├── tools/              # Core extraction tools
+├── tests/              # Unit tests
+├── examples/           # Example scripts and sample themes
+└── docs/              # Documentation (in .md files)
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 
 ## License
 
