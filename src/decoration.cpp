@@ -25,11 +25,34 @@ void Decoration::init()
 {
     // Load theme configuration
     auto config = KSharedConfig::openConfig("e13decorationrc");
-    KConfigGroup generalGroup = config->group("General");
     
+    // General settings
+    KConfigGroup generalGroup = config->group("General");
     m_borderWidth = generalGroup.readEntry("BorderWidth", 4);
     m_titleHeight = generalGroup.readEntry("TitleBarHeight", 24);
     m_shadowsEnabled = generalGroup.readEntry("EnableShadows", true);
+    
+    // Button settings
+    KConfigGroup buttonGroup = config->group("Buttons");
+    m_buttonSize = buttonGroup.readEntry("ButtonSize", 24);
+    m_buttonSpacing = buttonGroup.readEntry("ButtonSpacing", 2);
+    
+    // Color settings
+    KConfigGroup colorGroup = config->group("Colors");
+    m_activeFrameColor = colorGroup.readEntry("ActiveFrameColor", QColor(40, 40, 45));
+    m_activeTitleBarColor = colorGroup.readEntry("ActiveTitleBarColor", QColor(50, 50, 55));
+    m_activeTextColor = colorGroup.readEntry("ActiveTextColor", QColor(255, 255, 255));
+    m_inactiveFrameColor = colorGroup.readEntry("InactiveFrameColor", QColor(60, 60, 65));
+    m_inactiveTitleBarColor = colorGroup.readEntry("InactiveTitleBarColor", QColor(70, 70, 75));
+    m_inactiveTextColor = colorGroup.readEntry("InactiveTextColor", QColor(160, 160, 165));
+    m_buttonHoverColor = colorGroup.readEntry("ButtonHoverColor", QColor(70, 70, 75));
+    m_buttonPressColor = colorGroup.readEntry("ButtonPressColor", QColor(30, 30, 35));
+    m_closeButtonColor = colorGroup.readEntry("CloseButtonColor", QColor(220, 80, 80));
+    
+    // Advanced settings
+    KConfigGroup advancedGroup = config->group("Advanced");
+    m_titleFontSize = advancedGroup.readEntry("TitleFontSize", 10);
+    m_titleBold = advancedGroup.readEntry("TitleBold", false);
 
     // Create button groups
     m_leftButtons = new KDecoration2::DecorationButtonGroup(
@@ -85,21 +108,18 @@ void Decoration::updateBorders()
 
 void Decoration::updateTitleBar()
 {
-    // Position button groups
-    const int buttonWidth = 24;
-    const int buttonSpacing = 2;
-    
+    // Position button groups using theme button size
     if (m_leftButtons) {
         m_leftButtons->setGeometry(QRect(
             m_borderWidth,
             0,
-            buttonWidth,
+            m_buttonSize,
             titleBarHeight()
         ));
     }
     
     if (m_rightButtons) {
-        const int rightButtonsWidth = m_rightButtons->buttons().count() * (buttonWidth + buttonSpacing);
+        const int rightButtonsWidth = m_rightButtons->buttons().count() * (m_buttonSize + m_buttonSpacing);
         m_rightButtons->setGeometry(QRect(
             size().width() - rightButtonsWidth - m_borderWidth,
             0,
@@ -144,31 +164,17 @@ int Decoration::titleBarHeight() const
 
 QColor Decoration::getFrameColor(bool active) const
 {
-    // E13 classic style: darker frame
-    if (active) {
-        return QColor(40, 40, 45);
-    } else {
-        return QColor(60, 60, 65);
-    }
+    return active ? m_activeFrameColor : m_inactiveFrameColor;
 }
 
 QColor Decoration::getTitleBarColor(bool active) const
 {
-    // E13 style: gradient effect simulated with solid color
-    if (active) {
-        return QColor(50, 50, 55);
-    } else {
-        return QColor(70, 70, 75);
-    }
+    return active ? m_activeTitleBarColor : m_inactiveTitleBarColor;
 }
 
 QColor Decoration::getTextColor(bool active) const
 {
-    if (active) {
-        return QColor(255, 255, 255);
-    } else {
-        return QColor(160, 160, 165);
-    }
+    return active ? m_activeTextColor : m_inactiveTextColor;
 }
 
 void Decoration::paint(QPainter *painter, const QRect &repaintRegion)
@@ -220,8 +226,8 @@ void Decoration::paintCaption(QPainter *painter) const
     }
     
     // Calculate text area (between button groups)
-    int leftOffset = m_borderWidth + 30; // Menu button width
-    int rightOffset = m_borderWidth + (m_rightButtons->buttons().count() * 26);
+    int leftOffset = m_borderWidth + m_buttonSize + 6; // Menu button width + padding
+    int rightOffset = m_borderWidth + (m_rightButtons->buttons().count() * (m_buttonSize + m_buttonSpacing));
     
     QRect textRect(
         leftOffset,
@@ -230,12 +236,12 @@ void Decoration::paintCaption(QPainter *painter) const
         titleBarHeight()
     );
     
-    // Draw caption text
+    // Draw caption text using theme font settings
     painter->setPen(getTextColor(active));
     
     QFont font = painter->font();
-    font.setPointSize(10);
-    font.setBold(false);
+    font.setPointSize(m_titleFontSize);
+    font.setBold(m_titleBold);
     painter->setFont(font);
     
     const QFontMetrics fm(font);

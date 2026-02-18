@@ -12,8 +12,9 @@ namespace E13
 Button::Button(KDecoration2::DecorationButtonType type, KDecoration2::Decoration *decoration, QObject *parent)
     : KDecoration2::DecorationButton(type, decoration, parent)
 {
-    // Set button size
-    const int buttonSize = 24;
+    // Get button size from decoration's theme
+    auto e13dec = qobject_cast<Decoration*>(decoration);
+    const int buttonSize = e13dec ? e13dec->buttonSize() : 24;
     setGeometry(QRect(0, 0, buttonSize, buttonSize));
 }
 
@@ -26,12 +27,15 @@ KDecoration2::DecorationButton *Button::create(KDecoration2::DecorationButtonTyp
 
 QColor Button::getButtonColor() const
 {
-    const bool active = decoration()->client()->isActive();
+    auto e13dec = qobject_cast<Decoration*>(decoration());
+    if (!e13dec) {
+        return Qt::transparent;
+    }
     
     if (isPressed()) {
-        return QColor(30, 30, 35);
+        return e13dec->buttonPressColor();
     } else if (isHovered()) {
-        return active ? QColor(70, 70, 75) : QColor(80, 80, 85);
+        return e13dec->buttonHoverColor();
     }
     
     return Qt::transparent;
@@ -39,13 +43,14 @@ QColor Button::getButtonColor() const
 
 QColor Button::getIconColor() const
 {
+    auto e13dec = qobject_cast<Decoration*>(decoration());
     const bool active = decoration()->client()->isActive();
     
     if (type() == KDecoration2::DecorationButtonType::Close) {
         if (isHovered() || isPressed()) {
             return QColor(255, 255, 255);
         }
-        return active ? QColor(220, 80, 80) : QColor(160, 160, 165);
+        return e13dec ? e13dec->closeButtonColor() : QColor(220, 80, 80);
     }
     
     if (isPressed()) {
@@ -54,7 +59,8 @@ QColor Button::getIconColor() const
         return active ? QColor(255, 255, 255) : QColor(180, 180, 185);
     }
     
-    return active ? QColor(220, 220, 220) : QColor(160, 160, 165);
+    // Use theme text colors for non-close buttons
+    return e13dec ? (active ? e13dec->activeTextColor() : e13dec->inactiveTextColor()) : QColor(220, 220, 220);
 }
 
 void Button::paint(QPainter *painter, const QRect &repaintRegion)
