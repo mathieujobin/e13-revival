@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: sans-serif; font-size: 14px; font-weight: bold; }
+      .label { font-family: sans-serif; font-size: 10px; fill: #666; }
+      .content { font-family: monospace; font-size: 11px; fill: #333; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="20" y="25" class="title" fill="#000">E13 Revival Window Decoration - Rendering Preview</text>
+  <text x="20" y="45" class="label">All graphics are procedurally drawn using QPainter - no external pixmaps/images required</text>
+  
+  <!-- Active Window -->
+  <g id="active-window">
+    <text x="50" y="80" class="label" font-weight="bold">Active Window:</text>
+    
+    <!-- Window Border (4px) -->
+    <rect x="50" y="90" width="500" height="280" fill="#28282d" />
+    
+    <!-- Content Area Background -->
+    <rect x="54" y="118" width="492" height="248" fill="#f5f5f5" />
+    
+    <!-- Title Bar -->
+    <rect x="54" y="94" width="492" height="24" fill="#32323a" />
+    
+    <!-- Separator Line -->
+    <line x1="54" y1="118" x2="546" y2="118" stroke="#46464b" stroke-width="1" />
+    
+    <!-- Menu Button (left side) - drawn as filled square -->
+    <rect x="58" y="97" width="18" height="18" fill="transparent" />
+    <rect x="64" y="103" width="6" height="6" fill="#ffffff" />
+    
+    <!-- Window Title Text -->
+    <text x="90" y="110" font-family="sans-serif" font-size="10" fill="#ffffff">E13 Revival - Active Window</text>
+    
+    <!-- Minimize Button - horizontal line -->
+    <g id="minimize-btn">
+      <rect x="470" y="97" width="18" height="18" fill="transparent" />
+      <line x1="473" y1="109" x2="485" y2="109" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    </g>
+    
+    <!-- Maximize Button - square outline -->
+    <g id="maximize-btn">
+      <rect x="492" y="97" width="18" height="18" fill="transparent" />
+      <rect x="496" y="101" width="10" height="10" fill="none" stroke="#ffffff" stroke-width="2" />
+    </g>
+    
+    <!-- Close Button - X with red color -->
+    <g id="close-btn">
+      <rect x="514" y="97" width="18" height="18" fill="transparent" />
+      <line x1="518" y1="101" x2="528" y2="111" stroke="#dc5050" stroke-width="2" stroke-linecap="round" />
+      <line x1="528" y1="101" x2="518" y2="111" stroke="#dc5050" stroke-width="2" stroke-linecap="round" />
+    </g>
+    
+    <!-- Content Sample -->
+    <text x="70" y="145" class="content">Window content area</text>
+    <text x="70" y="165" class="label">• Borders: QPainter::drawRect()</text>
+    <text x="70" y="180" class="label">• Title bar: QPainter::drawRect() + drawText()</text>
+    <text x="70" y="195" class="label">• Buttons: QPainter::drawLine() for icons (X, _, □)</text>
+    <text x="70" y="210" class="label">• Colors: From theme configuration (e13decorationrc)</text>
+    <text x="70" y="225" class="label">• No external images/pixmaps needed</text>
+  </g>
+  
+  <!-- Button State Examples -->
+  <g id="button-states" transform="translate(50, 390)">
+    <text x="0" y="0" class="label" font-weight="bold">Button States (drawn programmatically):</text>
+    
+    <!-- Normal state -->
+    <text x="10" y="20" class="label">Normal:</text>
+    <rect x="70" y="8" width="18" height="18" fill="transparent" stroke="#999" stroke-width="0.5" />
+    <line x1="74" y1="12" x2="84" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    <line x1="84" y1="12" x2="74" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Hover state -->
+    <text x="110" y="20" class="label">Hover:</text>
+    <rect x="170" y="8" width="18" height="18" fill="#464649" />
+    <line x1="174" y1="12" x2="184" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    <line x1="184" y1="12" x2="174" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Press state -->
+    <text x="210" y="20" class="label">Press:</text>
+    <rect x="270" y="8" width="18" height="18" fill="#1e1e23" />
+    <line x1="274" y1="12" x2="284" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+    <line x1="284" y1="12" x2="274" y2="22" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+  </g>
+  
+  <!-- Color Legend -->
+  <g id="colors" transform="translate(50, 445)">
+    <text x="0" y="0" class="label" font-weight="bold">Color Palette (Default Theme):</text>
+    <rect x="10" y="8" width="15" height="15" fill="#28282d" stroke="#999" stroke-width="0.5" />
+    <text x="30" y="20" class="label">Frame #28282d</text>
+    
+    <rect x="120" y="8" width="15" height="15" fill="#32323a" stroke="#999" stroke-width="0.5" />
+    <text x="140" y="20" class="label">Title #32323a</text>
+    
+    <rect x="230" y="8" width="15" height="15" fill="#dc5050" stroke="#999" stroke-width="0.5" />
+    <text x="250" y="20" class="label">Close #dc5050</text>
+    
+    <rect x="340" y="8" width="15" height="15" fill="#464649" stroke="#999" stroke-width="0.5" />
+    <text x="360" y="20" class="label">Hover #464649</text>
+  </g>
+</svg>
