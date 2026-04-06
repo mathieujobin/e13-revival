@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Id": "e13-decoration",
+        "Name": "E13 Revival",
+        "Description": "Window decoration engine that faithfully replicates E13's look and feel",
+        "Authors": [
+            {
+                "Name": "E13 Revival Project"
+            }
+        ],
+        "Category": "Decoration",
+        "License": "GPL-3.0",
+        "Version": "1.0.0",
+        "Website": "https://github.com/mathieujobin/e13-revival",
+        "ServiceTypes": [
+            "org.kde.kdecoration2"
+        ]
+    },
+    "org.kde.kdecoration2": {
+        "blur": false,
+        "shadows": true,
+        "roundedCorners": false
+    }
+}

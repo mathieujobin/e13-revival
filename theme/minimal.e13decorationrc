@@ -1,0 +1,30 @@
+[General]
+# E13 Minimal Theme
+BorderWidth=2
+TitleBarHeight=22
+EnableShadows=false
+
+[Colors]
+# Minimal monochrome
+ActiveFrameColor=#202020
+ActiveTitleBarColor=#282828
+ActiveTextColor=#ffffff
+
+InactiveFrameColor=#383838
+InactiveTitleBarColor=#404040
+InactiveTextColor=#a0a0a0
+
+ButtonHoverColor=#404040
+ButtonPressColor=#181818
+CloseButtonColor=#c04040
+
+[Buttons]
+ButtonSize=22
+ButtonSpacing=1
+LeftButtons=M
+RightButtons=IAX
+
+[Advanced]
+Antialiasing=true
+TitleFontSize=9
+TitleBold=false

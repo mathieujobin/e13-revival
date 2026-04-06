@@ -1,0 +1,30 @@
+[General]
+# E13 Dark Blue Theme
+BorderWidth=4
+TitleBarHeight=24
+EnableShadows=true
+
+[Colors]
+# Deep blue color scheme
+ActiveFrameColor=#1a2332
+ActiveTitleBarColor=#243447
+ActiveTextColor=#e8f0ff
+
+InactiveFrameColor=#2a3342
+InactiveTitleBarColor=#344352
+InactiveTextColor=#8090a0
+
+ButtonHoverColor=#344352
+ButtonPressColor=#1a2332
+CloseButtonColor=#e85050
+
+[Buttons]
+ButtonSize=24
+ButtonSpacing=2
+LeftButtons=M
+RightButtons=IAX
+
+[Advanced]
+Antialiasing=true
+TitleFontSize=10
+TitleBold=false

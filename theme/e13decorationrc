@@ -1,0 +1,55 @@
+[General]
+# E13 Revival Window Decoration Theme Configuration
+# This file controls the appearance of window decorations
+
+# Border width in pixels (used when window is not maximized)
+BorderWidth=4
+
+# Title bar height in pixels
+TitleBarHeight=24
+
+# Enable window shadows
+EnableShadows=true
+
+[Colors]
+# Active window colors
+ActiveFrameColor=#28282d
+ActiveTitleBarColor=#32323a
+ActiveTextColor=#ffffff
+
+# Inactive window colors
+InactiveFrameColor=#3c3c41
+InactiveTitleBarColor=#464649
+InactiveTextColor=#a0a0a5
+
+# Button colors
+ButtonHoverColor=#464649
+ButtonPressColor=#1e1e23
+CloseButtonColor=#dc5050
+
+# UI elements
+SeparatorColor=#46464b
+
+[Buttons]
+# Button size in pixels
+ButtonSize=24
+
+# Spacing between buttons in pixels
+ButtonSpacing=2
+
+# Button layout
+# L = left side, R = right side
+# M = menu, I = minimize, A = maximize, X = close
+# K = keep above, B = keep below, S = shade, D = on all desktops
+LeftButtons=M
+RightButtons=IAX
+
+[Advanced]
+# Enable antialiasing for smoother edges
+Antialiasing=true
+
+# Font size for window title
+TitleFontSize=10
+
+# Make title text bold
+TitleBold=false
