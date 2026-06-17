@@ -78,7 +78,7 @@ class SemanticNamer:
             return None
 
         state_tag = self._state_map.get(state, "uns")
-        return f"{semantic_role}_{state_tag}.png"
+        return f"{semantic_role}_{state_tag}{ext}"
 
     def translate_path(self, legacy_path: Path) -> Optional[Path]:
         """

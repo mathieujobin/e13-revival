@@ -260,7 +260,7 @@ Examples:
   # Extract only images
   %(prog)s -i theme.db -o ./output/ --no-config
 
-  # Extract with semantic filenames (win_a_1.ppm -> button_iconify_uns.png)
+  # Extract with semantic filenames (win_a_1.ppm -> button_iconify_uns.ppm)
   %(prog)s -i theme.db -o ./output/ --semantic-names
 
   # Verbose output
@@ -343,7 +343,7 @@ Examples:
     print(f"  Images Extracted: {results['images_extracted']}")
     print(f"  Configs Extracted: {results['configs_extracted']}")
     if args.semantic_names:
-        print(f"  Naming mode: semantic (win_* -> role_state.png)")
+        print(f"  Naming mode: semantic (win_* -> role_state.<ext>)")
     print(f"\nOutput saved to: {args.output}")
     
     return 0

@@ -59,36 +59,36 @@ class TestSemanticNamer(unittest.TestCase):
     # --- translate() ---
 
     def test_translate_ppm_state1(self):
-        self.assertEqual(self.namer.translate("win_a_1.ppm"), "button_iconify_uns.png")
+        self.assertEqual(self.namer.translate("win_a_1.ppm"), "button_iconify_uns.ppm")
 
     def test_translate_ppm_state2(self):
-        self.assertEqual(self.namer.translate("win_a_2.ppm"), "button_iconify_sel.png")
+        self.assertEqual(self.namer.translate("win_a_2.ppm"), "button_iconify_sel.ppm")
 
     def test_translate_ppm_state3(self):
-        self.assertEqual(self.namer.translate("win_a_3.ppm"), "button_iconify_clk.png")
+        self.assertEqual(self.namer.translate("win_a_3.ppm"), "button_iconify_clk.ppm")
 
     def test_translate_png_variant(self):
         self.assertEqual(self.namer.translate("win_l_1.png"), "button_close_uns.png")
 
     def test_translate_all_states_close_button(self):
-        self.assertEqual(self.namer.translate("win_l_1.ppm"), "button_close_uns.png")
-        self.assertEqual(self.namer.translate("win_l_2.ppm"), "button_close_sel.png")
-        self.assertEqual(self.namer.translate("win_l_3.ppm"), "button_close_clk.png")
+        self.assertEqual(self.namer.translate("win_l_1.ppm"), "button_close_uns.ppm")
+        self.assertEqual(self.namer.translate("win_l_2.ppm"), "button_close_sel.ppm")
+        self.assertEqual(self.namer.translate("win_l_3.ppm"), "button_close_clk.ppm")
 
     def test_translate_border_left(self):
-        self.assertEqual(self.namer.translate("win_e_1.ppm"), "border_left_uns.png")
+        self.assertEqual(self.namer.translate("win_e_1.ppm"), "border_left_uns.ppm")
 
     def test_translate_corner_bottomleft(self):
-        self.assertEqual(self.namer.translate("win_f_1.ppm"), "corner_bottomleft_uns.png")
+        self.assertEqual(self.namer.translate("win_f_1.ppm"), "corner_bottomleft_uns.ppm")
 
     def test_translate_titlebar_bg(self):
-        self.assertEqual(self.namer.translate("win_m_2.ppm"), "titlebar_bg_sel.png")
+        self.assertEqual(self.namer.translate("win_m_2.ppm"), "titlebar_bg_sel.ppm")
 
     def test_translate_titlebar_title_full(self):
-        self.assertEqual(self.namer.translate("win_o_3.ppm"), "titlebar_title_clk.png")
+        self.assertEqual(self.namer.translate("win_o_3.ppm"), "titlebar_title_clk.ppm")
 
     def test_translate_titlebar_title_small(self):
-        self.assertEqual(self.namer.translate("win_p_1.ppm"), "titlebar_title_small_uns.png")
+        self.assertEqual(self.namer.translate("win_p_1.ppm"), "titlebar_title_small_uns.ppm")
 
     def test_translate_unknown_stem_returns_none(self):
         self.assertIsNone(self.namer.translate("win_z_1.ppm"))
@@ -101,7 +101,7 @@ class TestSemanticNamer(unittest.TestCase):
         result = self.namer.translate_path(p)
         self.assertIsNotNone(result)
         self.assertEqual(result.parent, Path("/some/dir"))
-        self.assertEqual(result.name, "button_iconify_uns.png")
+        self.assertEqual(result.name, "button_iconify_uns.ppm")
 
     # --- get_semantic_role() ---
 
