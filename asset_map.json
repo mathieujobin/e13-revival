@@ -1,0 +1,328 @@
+{
+  "_comment": "Mapping from legacy E13 pixmap filenames to semantic decoration roles and states.",
+  "_source": "Derived from the DEFAULT and DEFAULT_small theme windowstyles configs in the original E13 source (mathieujobin/enlightenment-13). States: 1=unselected(uns), 2=selected(sel), 3=clicked(clk).",
+  "_kwin_e13_ref": "mathieujobin/kwin_e13@bd9908ec2720e3285302388084822ef92b7ef733 contents/imgs",
+  "state_map": {
+    "1": "uns",
+    "2": "sel",
+    "3": "clk"
+  },
+  "assets": {
+    "win_a": {
+      "semantic_role": "button_iconify",
+      "description": "Iconify/minimise button on the left sidebar (top position)",
+      "type": "button",
+      "position": "left_sidebar_top",
+      "actions": ["iconify"],
+      "states": {
+        "win_a_1.ppm": "button_iconify_uns.png",
+        "win_a_2.ppm": "button_iconify_sel.png",
+        "win_a_3.ppm": "button_iconify_clk.png",
+        "win_a_1.png": "button_iconify_uns.png",
+        "win_a_2.png": "button_iconify_sel.png",
+        "win_a_3.png": "button_iconify_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_b": {
+      "semantic_role": "button_raise_lower",
+      "description": "Raise/lower button on the left sidebar (second position)",
+      "type": "button",
+      "position": "left_sidebar_mid",
+      "actions": ["raise_lower", "raise", "lower"],
+      "states": {
+        "win_b_1.ppm": "button_raise_lower_uns.png",
+        "win_b_2.ppm": "button_raise_lower_sel.png",
+        "win_b_3.ppm": "button_raise_lower_clk.png",
+        "win_b_1.png": "button_raise_lower_uns.png",
+        "win_b_2.png": "button_raise_lower_sel.png",
+        "win_b_3.png": "button_raise_lower_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_c": {
+      "semantic_role": "button_drag_sticky",
+      "description": "Drag/sticky toggle button on the left sidebar (third position)",
+      "type": "button",
+      "position": "left_sidebar_lower",
+      "actions": ["drag", "sticky", "snapshot", "unsnapshot"],
+      "states": {
+        "win_c_1.ppm": "button_drag_sticky_uns.png",
+        "win_c_2.ppm": "button_drag_sticky_sel.png",
+        "win_c_3.ppm": "button_drag_sticky_clk.png",
+        "win_c_1.png": "button_drag_sticky_uns.png",
+        "win_c_2.png": "button_drag_sticky_sel.png",
+        "win_c_3.png": "button_drag_sticky_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_d": {
+      "semantic_role": "button_resize",
+      "description": "Resize/move button on the left sidebar (bottom position)",
+      "type": "button",
+      "position": "left_sidebar_bottom",
+      "actions": ["resize", "move"],
+      "states": {
+        "win_d_1.ppm": "button_resize_uns.png",
+        "win_d_2.ppm": "button_resize_sel.png",
+        "win_d_3.ppm": "button_resize_clk.png",
+        "win_d_1.png": "button_resize_uns.png",
+        "win_d_2.png": "button_resize_sel.png",
+        "win_d_3.png": "button_resize_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_e": {
+      "semantic_role": "border_left",
+      "description": "Left border strip (scalable, below the left-sidebar buttons)",
+      "type": "decoration",
+      "position": "border_left",
+      "actions": ["resize", "move"],
+      "scale_method": "scale",
+      "states": {
+        "win_e_1.ppm": "border_left_uns.png",
+        "win_e_2.ppm": "border_left_sel.png",
+        "win_e_3.ppm": "border_left_clk.png",
+        "win_e_1.png": "border_left_uns.png",
+        "win_e_2.png": "border_left_sel.png",
+        "win_e_3.png": "border_left_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_f": {
+      "semantic_role": "corner_bottomleft",
+      "description": "Bottom-left corner decoration",
+      "type": "decoration",
+      "position": "corner_bottomleft",
+      "actions": ["resize", "move"],
+      "states": {
+        "win_f_1.ppm": "corner_bottomleft_uns.png",
+        "win_f_2.ppm": "corner_bottomleft_sel.png",
+        "win_f_3.ppm": "corner_bottomleft_clk.png",
+        "win_f_1.png": "corner_bottomleft_uns.png",
+        "win_f_2.png": "corner_bottomleft_sel.png",
+        "win_f_3.png": "corner_bottomleft_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_g": {
+      "semantic_role": "border_bottom",
+      "description": "Bottom border strip (scalable)",
+      "type": "decoration",
+      "position": "border_bottom",
+      "actions": ["resize", "move"],
+      "scale_method": "scale",
+      "states": {
+        "win_g_1.ppm": "border_bottom_uns.png",
+        "win_g_2.ppm": "border_bottom_sel.png",
+        "win_g_3.ppm": "border_bottom_clk.png",
+        "win_g_1.png": "border_bottom_uns.png",
+        "win_g_2.png": "border_bottom_sel.png",
+        "win_g_3.png": "border_bottom_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_h": {
+      "semantic_role": "corner_bottomright",
+      "description": "Bottom-right corner decoration",
+      "type": "decoration",
+      "position": "corner_bottomright",
+      "actions": ["resize", "move"],
+      "states": {
+        "win_h_1.ppm": "corner_bottomright_uns.png",
+        "win_h_2.ppm": "corner_bottomright_sel.png",
+        "win_h_3.ppm": "corner_bottomright_clk.png",
+        "win_h_1.png": "corner_bottomright_uns.png",
+        "win_h_2.png": "corner_bottomright_sel.png",
+        "win_h_3.png": "corner_bottomright_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_i": {
+      "semantic_role": "border_right",
+      "description": "Right border strip (scalable)",
+      "type": "decoration",
+      "position": "border_right",
+      "actions": ["resize", "move"],
+      "scale_method": "scale",
+      "states": {
+        "win_i_1.ppm": "border_right_uns.png",
+        "win_i_2.ppm": "border_right_sel.png",
+        "win_i_3.ppm": "border_right_clk.png",
+        "win_i_1.png": "border_right_uns.png",
+        "win_i_2.png": "border_right_sel.png",
+        "win_i_3.png": "border_right_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_j": {
+      "semantic_role": "titlebar_right_cap",
+      "description": "Right cap of the top header bar (decorative area above right border)",
+      "type": "decoration",
+      "position": "titlebar_right_cap",
+      "actions": ["resize", "move"],
+      "states": {
+        "win_j_1.ppm": "titlebar_right_cap_uns.png",
+        "win_j_2.ppm": "titlebar_right_cap_sel.png",
+        "win_j_3.ppm": "titlebar_right_cap_clk.png",
+        "win_j_1.png": "titlebar_right_cap_uns.png",
+        "win_j_2.png": "titlebar_right_cap_sel.png",
+        "win_j_3.png": "titlebar_right_cap_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_k": {
+      "semantic_role": "titlebar_mid_strip",
+      "description": "Middle strip of the top header bar connecting left-sidebar area to right cap",
+      "type": "decoration",
+      "position": "titlebar_mid_strip",
+      "actions": ["resize", "move"],
+      "scale_method": "scale",
+      "states": {
+        "win_k_1.ppm": "titlebar_mid_strip_uns.png",
+        "win_k_2.ppm": "titlebar_mid_strip_sel.png",
+        "win_k_3.ppm": "titlebar_mid_strip_clk.png",
+        "win_k_1.png": "titlebar_mid_strip_uns.png",
+        "win_k_2.png": "titlebar_mid_strip_sel.png",
+        "win_k_3.png": "titlebar_mid_strip_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_l": {
+      "semantic_role": "button_close",
+      "description": "Top-left close/kill button (also iconifies on right-click)",
+      "type": "button",
+      "position": "topleft_corner",
+      "actions": ["kill", "kill_nasty", "iconify"],
+      "states": {
+        "win_l_1.ppm": "button_close_uns.png",
+        "win_l_2.ppm": "button_close_sel.png",
+        "win_l_3.ppm": "button_close_clk.png",
+        "win_l_1.png": "button_close_uns.png",
+        "win_l_2.png": "button_close_sel.png",
+        "win_l_3.png": "button_close_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_m": {
+      "semantic_role": "titlebar_bg",
+      "description": "Full titlebar background strip (behind title text and buttons)",
+      "type": "button",
+      "position": "titlebar_full",
+      "actions": ["move", "max_height", "max_width", "max_size"],
+      "scale_method": "scale",
+      "states": {
+        "win_m_1.ppm": "titlebar_bg_uns.png",
+        "win_m_2.ppm": "titlebar_bg_sel.png",
+        "win_m_3.ppm": "titlebar_bg_clk.png",
+        "win_m_1.png": "titlebar_bg_uns.png",
+        "win_m_2.png": "titlebar_bg_sel.png",
+        "win_m_3.png": "titlebar_bg_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_n": {
+      "semantic_role": "button_maximize",
+      "description": "Maximize/restore button on the right side of the titlebar",
+      "type": "button",
+      "position": "titlebar_right_button",
+      "actions": ["move", "max_height", "max_width", "max_size"],
+      "states": {
+        "win_n_1.ppm": "button_maximize_uns.png",
+        "win_n_2.ppm": "button_maximize_sel.png",
+        "win_n_3.ppm": "button_maximize_clk.png",
+        "win_n_1.png": "button_maximize_uns.png",
+        "win_n_2.png": "button_maximize_sel.png",
+        "win_n_3.png": "button_maximize_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_o": {
+      "semantic_role": "titlebar_title",
+      "description": "Window title text area in DEFAULT (full-size) theme (type=title in E13 config)",
+      "type": "title",
+      "position": "titlebar_title",
+      "actions": ["move", "max_height", "max_width", "max_size"],
+      "theme_variant": "DEFAULT",
+      "states": {
+        "win_o_1.ppm": "titlebar_title_uns.png",
+        "win_o_2.ppm": "titlebar_title_sel.png",
+        "win_o_3.ppm": "titlebar_title_clk.png",
+        "win_o_1.png": "titlebar_title_uns.png",
+        "win_o_2.png": "titlebar_title_sel.png",
+        "win_o_3.png": "titlebar_title_clk.png"
+      },
+      "authoritative_raster": true
+    },
+    "win_p": {
+      "semantic_role": "titlebar_title_small",
+      "description": "Window title text area in DEFAULT_small (compact) theme (type=title in E13 config)",
+      "type": "title",
+      "position": "titlebar_title",
+      "actions": ["move", "max_height", "max_width", "max_size"],
+      "theme_variant": "DEFAULT_small",
+      "states": {
+        "win_p_1.ppm": "titlebar_title_small_uns.png",
+        "win_p_2.ppm": "titlebar_title_small_sel.png",
+        "win_p_3.ppm": "titlebar_title_small_clk.png",
+        "win_p_1.png": "titlebar_title_small_uns.png",
+        "win_p_2.png": "titlebar_title_small_sel.png",
+        "win_p_3.png": "titlebar_title_small_clk.png"
+      },
+      "authoritative_raster": true
+    }
+  },
+  "svg_buttons": {
+    "_comment": "SVG button icons from kwin_e13 (experimental, not original E13 raster assets)",
+    "close.svg": {
+      "semantic_role": "button_close_icon",
+      "description": "Close button icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "maximize.svg": {
+      "semantic_role": "button_maximize_icon",
+      "description": "Maximize button icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "maximize_hover.svg": {
+      "semantic_role": "button_maximize_icon_hover",
+      "description": "Maximize button hover icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "maximize_disable.svg": {
+      "semantic_role": "button_maximize_icon_disabled",
+      "description": "Maximize button disabled icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "minimize.svg": {
+      "semantic_role": "button_minimize_icon",
+      "description": "Minimize button icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "minimize_hover.svg": {
+      "semantic_role": "button_minimize_icon_hover",
+      "description": "Minimize button hover icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "minimize_disable.svg": {
+      "semantic_role": "button_minimize_icon_disabled",
+      "description": "Minimize button disabled icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "restore.svg": {
+      "semantic_role": "button_restore_icon",
+      "description": "Restore button icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "restore_hover.svg": {
+      "semantic_role": "button_restore_icon_hover",
+      "description": "Restore button hover icon (SVG, experimental)",
+      "authoritative_raster": false
+    },
+    "restore_disable.svg": {
+      "semantic_role": "button_restore_icon_disabled",
+      "description": "Restore button disabled icon (SVG, experimental)",
+      "authoritative_raster": false
+    }
+  }
+}
