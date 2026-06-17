@@ -21,21 +21,27 @@ except ImportError:
     PILLOW_AVAILABLE = False
 
 from imlib_db_parser import ImlibDBParser, ImlibDBError
+from semantic_names import SemanticNamer
 
 
 class ThemeExtractor:
     """Extract and convert E13 theme data to modern formats"""
     
-    def __init__(self, output_dir: Path, verbose: bool = False):
+    def __init__(self, output_dir: Path, verbose: bool = False,
+                 semantic_names: bool = False):
         """
         Initialize the theme extractor.
         
         Args:
             output_dir: Directory to save extracted files
             verbose: Enable verbose logging
+            semantic_names: When True, translate win_* filenames to semantic
+                role names using the asset_map.json mapping before saving.
         """
         self.output_dir = Path(output_dir)
         self.verbose = verbose
+        self.semantic_names = semantic_names
+        self._namer: Optional[SemanticNamer] = SemanticNamer() if semantic_names else None
         
         # Setup logging
         log_level = logging.DEBUG if verbose else logging.INFO
@@ -157,6 +163,13 @@ class ThemeExtractor:
                 filename += '.bmp'
             else:
                 filename += '.png'  # Default to PNG
+
+        # Apply semantic naming translation if requested
+        if self._namer is not None:
+            semantic = self._namer.translate(filename)
+            if semantic is not None:
+                self.logger.debug(f"Semantic rename: {filename} -> {semantic}")
+                filename = semantic
         
         output_path = self.images_dir / filename
         
@@ -247,6 +260,9 @@ Examples:
   # Extract only images
   %(prog)s -i theme.db -o ./output/ --no-config
 
+  # Extract with semantic filenames (win_a_1.ppm -> button_iconify_uns.ppm)
+  %(prog)s -i theme.db -o ./output/ --semantic-names
+
   # Verbose output
   %(prog)s -i theme.db -o ./output/ -v
         """
@@ -279,6 +295,15 @@ Examples:
     )
     
     parser.add_argument(
+        '--semantic-names',
+        action='store_true',
+        help=(
+            'Translate legacy win_* pixmap names to semantic role names '
+            '(e.g. win_a_1.ppm -> button_iconify_uns.png) using asset_map.json'
+        )
+    )
+    
+    parser.add_argument(
         '-v', '--verbose',
         action='store_true',
         help='Enable verbose output'
@@ -296,7 +321,11 @@ Examples:
         return 1
     
     # Create extractor and run
-    extractor = ThemeExtractor(args.output, verbose=args.verbose)
+    extractor = ThemeExtractor(
+        args.output,
+        verbose=args.verbose,
+        semantic_names=args.semantic_names,
+    )
     
     results = extractor.extract_theme(
         args.input,
@@ -313,6 +342,8 @@ Examples:
     print(f"  Total Entries: {results['total_entries']}")
     print(f"  Images Extracted: {results['images_extracted']}")
     print(f"  Configs Extracted: {results['configs_extracted']}")
+    if args.semantic_names:
+        print(f"  Naming mode: semantic (win_* -> role_state.<ext>)")
     print(f"\nOutput saved to: {args.output}")
     
     return 0
